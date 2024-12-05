@@ -1,8 +1,11 @@
 import { useFonts } from "expo-font";
+
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import "react-native-reanimated";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { HELLO_THERE } from "./utils/constants";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -32,6 +35,7 @@ export default function RootLayout() {
         }
         return color;
     };
+
     const changeBackGround = () => {
         const generatedColor = getRandomColor();
 
@@ -43,7 +47,7 @@ export default function RootLayout() {
             style={[styles.container, { backgroundColor: color }]}
             onPress={changeBackGround}
         >
-            <Text>Hello world!</Text>
+            <Text style={styles.text}>{HELLO_THERE}</Text>
         </TouchableOpacity>
     );
 }
@@ -52,10 +56,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
-        alignItems: "center",
+
         justifyContent: "center",
     },
     touchableView: {
         flex: 1,
+    },
+    text: {
+        alignSelf: "center",
+        fontSize: 26,
+        fontWeight: "bold",
     },
 });
