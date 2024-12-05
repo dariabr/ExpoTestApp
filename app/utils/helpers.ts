@@ -1,13 +1,9 @@
 import { Color } from "../types";
 
 export function colorToHex(color: Color) {
-    console.log("COLOR", color);
     const rHex = color.r.toString(16);
     const gHex = color.g.toString(16);
     const bHex = color.b.toString(16);
-    console.log("rHex", rHex);
-    console.log("gHex", gHex);
-    console.log("bHex", bHex);
     return `#${rHex}${gHex}${bHex}`;
 }
 
